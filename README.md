@@ -86,11 +86,9 @@ Fix-up file names for your own data file
 
 If you use your own data and configuration files, you will need to update the variables that refer to the data files in the Jupyter Notebook.
 
-In the notebook, update the global variables in the cell following
+In the notebook, update the global variables in the cell following `2.2 Global Variables section`
 
-2.2 Global Variables section.
-
-In the notebook, update the global variables in the cell following 2.2 Global Variables section.
+In the notebook, update the global variables in the cell following `2.2 Global Variables section`
 
 Append the filenames list with the names of your image files
 
