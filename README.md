@@ -88,8 +88,6 @@ If you use your own data and configuration files, you will need to update the va
 
 In the notebook, update the global variables in the cell following `2.2 Global Variables section`
 
-In the notebook, update the global variables in the cell following `2.2 Global Variables section`
-
 Append the filenames list with the names of your image files
 
 ![](doc/source/images/bluemix_service_nlu.png)
