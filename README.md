@@ -1,23 +1,18 @@
-# Augmented Classification of text with Watson Natural Language Understanding and IBM Data Science experience
+# Pattern Draft
 
-*Read this in other languages: [한국어](README-ko.md).*
+This code pattern focuses on recognizing an image of documents and extract the required information using Image Recognition techniques, Optical Character Recognition, Watson Natural Language Understanding and python NLTK.
 
-In this developer journey we will use Jupyter notebooks in IBM Data Science experience(DSX) to augment
-IBM Watson Natural Language Understanding API output through configurable mechanism for text classification.
+After completing this pattern, you will learn how to:
 
-When the reader has completed this journey, they will understand how to:
-
+* Perform Image Recognition using python libraries such as scikit-learn and keras(deep learning libraries)
+* Extract information using Optical Character Recognition
+* Use the IBM Watson NLU API to extract metadata from documents in Jupyter notebooks.
+* Extract and format unstructured data using simplified Python functions.
 * Create and run a Jupyter notebook in DSX.
 * Use DSX Object Storage to access data and configuration files.
-* Use IBM Watson Natural Language Understanding API to extract metadata from documents in Jupyter notebooks.
-* Extract and format unstructured data using simplified Python functions.
 * Use a configuration file to build configurable and layered classification grammar.
-* Use the combination of grammatical classification and regex patterns from a configuration file to classify word token classes.
-* Store the processed output JSON in DSX Object Storage.
+* Use the combination of grammatical classification and regex patterns from a configuration file to extract information.
 
-The intended audience for this journey is developers who want to learn a method for augmenting classification metadata obtained from Watson Natural Language Understanding API, in situations when there is a scarcity of historical data. The traditional approach of training a Text Analytics model yields less than expected results. The distinguishing factor of this journey is that it allows a configurable mechanism of text classification. It helps give a developer a head start in the case of text from a specialized domain, with no generally available English parser.
-
-![](doc/source/images/architecture.png)
 
 ## Included components
 
@@ -27,82 +22,151 @@ The intended audience for this journey is developers who want to learn a method 
 
 * [Watson Natural Language Understanding](https://console.bluemix.net/catalog/services/natural-language-understanding/?cm_sp=dw-bluemix-_-code-_-devcenter): A IBM Cloud service that can analyze text to extract meta-data from content such as concepts, entities, keywords, categories, sentiment, emotion, relations, semantic roles, using natural language understanding.
 
+
 ## Featured technologies
 
 * [Jupyter Notebooks](http://jupyter.org/): An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
 
 
-# Watch the Video
-
-[![](http://img.youtube.com/vi/kp8dcM9AKrA/0.jpg)](https://www.youtube.com/watch?v=kp8dcM9AKrA)
-
-# Steps
-
-Follow these steps to setup and run this developer journey. The steps are
-described in detail below.
-
-1. [Sign up for the Data Science Experience](#1-sign-up-for-the-data-science-experience)
-1. [Create IBM Cloud services](#2-create-ibm-cloud-services)
-1. [Create the notebook](#3-create-the-notebook)
-1. [Add the data and configuraton file](#4-add-the-data-and-configuration-file)
-1. [Update the notebook with service credentials](#5-update-the-notebook-with-service-credentials)
-1. [Run the notebook](#6-run-the-notebook)
-1. [Download the results](#7-download-the-results)
-1. [Analyze the results](#8-analyze-the-results)
 
 ## 1. Sign up for the Data Science Experience
 
-Sign up for IBM's [Data Science Experience](http://datascience.ibm.com/). 
+Sign up for IBM's [Watson Studio](http://datascience.ibm.com/). 
 By signing up for the Data Science Experience, two services will be created - ``Spark`` and ``ObjectStore`` in your Bluemix account.
 
-## 2. Create IBM Cloud services
+This code pattern is further divided into 2 sections-
+Image Classification of Documents
 
-Create the following IBM Cloud service and name it wdc-NLU-service:
+* Image Classification of Documents
+* Entity Extraction and Document Classification
 
-  * [**Watson Natural Language Understanding**](https://console.bluemix.net/catalog/services/natural-language-understanding)
+# Image Classification of Documents
 
-  ![](doc/source/images/bluemix_service_nlu.png)
+## 1.  Prepare the Data
 
-## 3. Create the notebook
+The input to this code are a set of images required for training and testing of the model.
+To create your own Dataset, follow the following naming structure for each image-
 
-In [Data Science Experience](https://datascience.ibm.com/):
+![](doc/source/images/bluemix_service_nlu.png)
 
-Use the menu on the top to select `Projects` and then `Default Project`.
-Click on `Add notebooks` (upper right) to create a notebook.
+Where, Cheque, Driving_License, None, Pancard and Passport are the classes required to classify by the model.
+Or 
+You may also use the sample training images provided in the git repo, in the Data folder.
 
-* Select the `From URL` tab.
+## 2. Create the notebook 
+
+A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
+
+Steps:
+
+In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to create a notebook.
+
+* In Watson Studio, click on Create notebook to create a notebook.
+* Create a project if necessary, provisioning an object storage service if required.
+* In the Assets tab, select the Create notebook option.
+* Select the From URL tab.
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
-* Enter this Notebook URL: https://github.com/IBM/watson-document-classifier/blob/master/notebooks/watson_document_classifier.ipynb
-* Click the `Create Notebook` button.
+* Enter this Notebook URL: 
+* Select the free Anaconda runtime.
+* Click the Create button.
 
-![](doc/source/images/create_notebook_from_url.png)
+![](doc/source/images/bluemix_service_nlu.png)
 
-## 4. Add the data and configuration file
+## 3. Add the data file
 
-#### Add the data and configuration to the notebook
+* Add the all the files in your Data Folder to Object Storage- From the My Projects > Default page, Use Find and Add Data (look for the 10/01 icon) and its Files tab.
+* Click browse and navigate to this repo (some name)/data and select all the files
 
-* From the `My Projects > Default` page, Use `Find and Add Data` (look for the `10/01` icon)
-and its `Files` tab.
-* Click `browse` and navigate to this repo `watson-document-classifier/data/sample_text.txt`
-* Click `browse` and navigate to this repo `watson-document-classifier/configuration/sample_config.txt`
+![](doc/source/images/bluemix_service_nlu.png)
 
-![](doc/source/images/add_file.png)
+Note:  It is possible to use your own data files. If you use an image file from your computer, make sure to conform to the naming structure mentioned above.
 
-> Note:  It is possible to use your own data and configuration files.
-If you use a configuration file from your computer, make sure to conform to the JSON structure given in `configuration/sample_config.txt`.
+Fix-up file names for your own data file
 
-#### Fix-up file names for your own data and configuration files
+If you use your own data and configuration files, you will need to update the variables that refer to the data files in the Jupyter Notebook.
 
-If you use your own data and configuration files, you will need to update the variables that refer to the data and configuration files in the Jupyter Notebook.
+In the notebook, update the global variables in the cell following
 
-In the notebook, update the global variables in the cell following `2.3 Global Variables` section.
+2.2 Global Variables section.
 
-Replace the `sampleTextFileName` with the name of your data file and `sampleConfigFileName` with your configuration file name.
+In the notebook, update the global variables in the cell following 2.2 Global Variables section.
 
-![](doc/source/images/update_variables.png)
+Append the filenames list with the names of your image files
 
-## 5. Update the notebook with service credentials
+![](doc/source/images/bluemix_service_nlu.png)
+
+## 4. Update the notebook with service credentials
+
+Add the Object Storage credentials to the notebook
+
+Select the cell below  2.1 Add your service credentials for Object Storage section in the notebook to update the credentials for Object Store.
+
+* Delete the contents of the cell
+* Use Find and Add Data (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
+* Select Insert to code (below your sample_text.txt).
+* Click Insert Crendentials from drop down menu.
+* Make sure the credentials are saved as credentials_1.
+
+![](doc/source/images/bluemix_service_nlu.png)
+
+
+# Entity Extraction and Document Classification
+
+## 1. Create IBM Cloud services
+
+Create the following IBM Cloud service and give a unique name for the service instance:
+
+* [Watson Natural Language Understanding](https://console.bluemix.net/catalog/services/natural-language-understanding)
+
+![](doc/source/images/bluemix_service_nlu.png)
+
+
+## 2. Create the notebook 
+
+A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
+
+Steps:
+
+In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to create a notebook.
+
+* In Watson Studio, click on Create notebook to create a notebook.
+* Create a project if necessary, provisioning an object storage service if required.
+* In the Assets tab, select the Create notebook option.
+* Select the From URL tab.
+* Enter a name for the notebook.
+* Optionally, enter a description for the notebook.
+* Enter this Notebook URL: 
+* Select the free Anaconda runtime.
+* Click the Create button.
+
+![](doc/source/images/bluemix_service_nlu.png)
+
+
+## 3. Add the data file
+
+* Add the all the files in your Data Folder to Object Storage- From the My Projects > Default page, Use Find and Add Data (look for the 10/01 icon) and its Files tab.
+* Click browse and navigate to this repo (some name)/data and select all the files
+
+![](doc/source/images/bluemix_service_nlu.png)
+
+Note:  It is possible to use your own data files. If you use an image file from your computer, make sure to conform to the naming structure mentioned above.
+
+Fix-up file names for your own data file
+
+If you use your own data and configuration files, you will need to update the variables that refer to the data files in the Jupyter Notebook.
+
+In the notebook, update the global variables in the cell following
+
+2.2 Global Variables section.
+
+In the notebook, update the global variables in the cell following 2.2 Global Variables section.
+
+Append the filenames list with the names of your image files
+
+![](doc/source/images/bluemix_service_nlu.png)
+
+## 4. Update the notebook with service credentials
 
 #### Add the Watson Natural Language Understanding credentials to the notebook
 Select the cell below `2.1 Add your service credentials from IBM Cloud for the Watson services` section in the notebook to update the credentials for Watson Natural Langauage Understanding. 
@@ -130,65 +194,3 @@ Update the `username` and `password` key values in the cell below `2.1 Add your 
 * Make sure the credentials are saved as `credentials_1`.
 
 ![](doc/source/images/objectstorage_credentials.png)
-
-## 6. Run the notebook
-
-When a notebook is executed, what is actually happening is that each code cell in
-the notebook is executed, in order, from top to bottom.
-
-> IMPORTANT: The first time you run your notebook, you will need to install the necessary
-packages in section 1.1 and then `Restart the kernel`.
-
-Each code cell is selectable and is preceded by a tag in the left margin. The tag
-format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
-
-* A blank, this indicates that the cell has never been executed.
-* A number, this number represents the relative order this code step was executed.
-* A `*`, this indicates that the cell is currently executing.
-
-There are several ways to execute the code cells in your notebook:
-
-* One cell at a time.
-  * Select the cell, and then press the `Play` button in the toolbar.
-* Batch mode, in sequential order.
-  * From the `Cell` menu bar, there are several options available. For example, you
-    can `Run All` cells in your notebook, or you can `Run All Below`, that will
-    start executing from the first cell under the currently selected cell, and then
-    continue executing all cells that follow.
-* At a scheduled time.
-  * Press the `Schedule` button located in the top right section of your notebook
-    panel. Here you can schedule your notebook to be executed once at some future
-    time, or repeatedly at your specified interval.
-
-## 7. Download the results
-
-* To see the results, go to [DSX-ObjectStore](https://console.bluemix.net/dashboard/storage)
-* Click on the name of your object storage
-* Click on the Container with the name you gave your Notebook
-* Select `sample_text_classification.txt` file using select box to the left of the file listing
-* Click the `SelectAction` button and use the `Download File` drop down menu to download `sample_text_classification.txt` file.
-
-![](doc/source/images/objectstore_download_file.png)
-
-
-## 8. Analyze the results
-
-After running each cell of the notebook under `Classify text`, the results will display.
-
-The configuration json controls the way the text is classified. The classification process is divided into stages - Base Tagging and Domain Tagging. The Base Tagging stage can be used to specify keywords based classification, regular expression based classification, and tagging based on chunking expressions. The Domain Tagging stage can be used to specify classification that is specific to the domain, in order to augment the results from Watson Natural Language Understanding.
-
-![](doc/source/images/text_classify_config.png)
-
-We can modify the configuration json to add more keywords or add regular expressions. In this way, we can augment the text classification without any changes to the code.
-We can add more stages to the configuration json if required and enhance the text classification results with code modifications.
-
-It can be seen from the classification results that the keywords and regular expressions specified in the configuration have been correctly classified
-in the analyzed text that is displayed.
-
-# Troubleshooting
-
-[See DEBUGGING.md.](DEBUGGING.md)
-
-# License
-
-[Apache 2.0](LICENSE)
