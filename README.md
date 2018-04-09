@@ -47,7 +47,7 @@ Image Classification of Documents
 The input to this code are a set of images required for training and testing of the model.
 To create your own Dataset, follow the following naming structure for each image-
 
-![](doc/source/images/bluemix_service_nlu.png)
+![](images-git/Labels.png)
 
 Where, Cheque, Driving_License, None, Pancard and Passport are the classes required to classify by the model.
 Or 
@@ -71,14 +71,14 @@ In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to cre
 * Select the free Anaconda runtime.
 * Click the Create button.
 
-![](doc/source/images/bluemix_service_nlu.png)
+![](images-git/create_notebook_from_url.png)
 
 ## 3. Add the data file
 
 * Add the all the files in your Data Folder to Object Storage- From the My Projects > Default page, Use Find and Add Data (look for the 10/01 icon) and its Files tab.
 * Click browse and navigate to this repo (some name)/data and select all the files
 
-![](doc/source/images/bluemix_service_nlu.png)
+![](images-git/add_file.png)
 
 Note:  It is possible to use your own data files. If you use an image file from your computer, make sure to conform to the naming structure mentioned above.
 
@@ -86,11 +86,16 @@ Fix-up file names for your own data file
 
 If you use your own data and configuration files, you will need to update the variables that refer to the data files in the Jupyter Notebook.
 
-In the notebook, update the global variables in the cell following `2.2 Global Variables section`
+In the notebook, update the global variables in the cell following
+
+2.2 Global Variables section.
+
+In the notebook, update the global variables in the cell following 2.2 Global Variables section.
 
 Append the filenames list with the names of your image files
 
-![](doc/source/images/bluemix_service_nlu.png)
+![](images-git/global_variables.png)
+
 
 ## 4. Update the notebook with service credentials
 
@@ -104,7 +109,23 @@ Select the cell below  2.1 Add your service credentials for Object Storage secti
 * Click Insert Crendentials from drop down menu.
 * Make sure the credentials are saved as credentials_1.
 
-![](doc/source/images/bluemix_service_nlu.png)
+![](images-git/Service_credentials.png)
+
+
+# Text Extraction Using Optical Character Recognition
+
+* Install Tesseract OCR. Follow the instructions according to you system specifications
+* In the repo download the notebook Convert_Image_to_Text.ipynb 
+
+    ### Configuration
+         Fix-up file names for your filename and configuration files in the `2.1 Global Variables` section. 
+         In the notebook, update the global variables in the cell following `2.1 Global Variables` section.
+         
+    ![](images-git/global_variables_OCR.png)    
+         
+    Replace the filename with the path of your image files and name with the desired output text file name
+    or 
+    Use the image files provided in the git repo /input_image/Rental_agreement and /input_image/Purcahse_agreement
 
 
 # Entity Extraction and Document Classification
@@ -115,7 +136,7 @@ Create the following IBM Cloud service and give a unique name for the service in
 
 * [Watson Natural Language Understanding](https://console.bluemix.net/catalog/services/natural-language-understanding)
 
-![](doc/source/images/bluemix_service_nlu.png)
+![](images-git/bluemix_service_nlu.png)
 
 
 ## 2. Create the notebook 
@@ -136,7 +157,7 @@ In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to cre
 * Select the free Anaconda runtime.
 * Click the Create button.
 
-![](doc/source/images/bluemix_service_nlu.png)
+![](images-git/create_notebook_from_url.png)
 
 
 ## 3. Add the data file
@@ -144,7 +165,7 @@ In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to cre
 * Add the all the files in your Data Folder to Object Storage- From the My Projects > Default page, Use Find and Add Data (look for the 10/01 icon) and its Files tab.
 * Click browse and navigate to this repo (some name)/data and select all the files
 
-![](doc/source/images/bluemix_service_nlu.png)
+![](images-git/add_file.png)
 
 Note:  It is possible to use your own data files. If you use an image file from your computer, make sure to conform to the naming structure mentioned above.
 
@@ -160,7 +181,7 @@ In the notebook, update the global variables in the cell following 2.2 Global Va
 
 Append the filenames list with the names of your image files
 
-![](doc/source/images/bluemix_service_nlu.png)
+![](images-git/global_variables_entity.png)
 
 ## 4. Update the notebook with service credentials
 
@@ -171,15 +192,15 @@ Open the Watson Natural Language Understanding service in your [IBM Cloud Dashbo
 
 Once the service is open click the `Service Credentials` menu on the left.
 
-![](doc/source/images/service_credentials.png)
+![](images-git/service_credentials_menu.png)
 
 In the `Service Credentials` that opens up in the UI, select whichever `Credentials` you would like to use in the notebook from the `KEY NAME` column. Click `View credentials` and copy `username` and `password` key values that appear on the UI in JSON format.
 
-![](doc/source/images/copy_credentials.png)
+![](images-git/copy_credentials.png)
 
 Update the `username` and `password` key values in the cell below `2.1 Add your service credentials from IBM Cloud for the Watson services` section.
 
-![](doc/source/images/watson_nlu_credentials.png)
+![](images-git/watson_nlu_credentials.png)
 
 #### Add the Object Storage credentials to the notebook
 * Select the cell below `2.2 Add your service credentials for Object Storage` section in the notebook to update the credentials for Object Store.
@@ -189,4 +210,9 @@ Update the `username` and `password` key values in the cell below `2.1 Add your 
 * Click `Insert Crendentials` from drop down menu.
 * Make sure the credentials are saved as `credentials_1`.
 
-![](doc/source/images/objectstorage_credentials.png)
+![](images-git/service_credentials.png)
+
+# Analyze the Results
+
+First run the Image Classification of Documents.ipynb. This notebook will identify a set of legal document from the rest of the input documents. The identified documents are further fed into Convert_Image_to_Text.ipynb. The resulting documents produced are fed as input to the next phase.
+The notebook entity_extraction_and_document_classification.ipynb provides the required entities in the document and classify the document based on the configuration files fed as an input to the same
