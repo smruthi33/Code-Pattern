@@ -80,7 +80,7 @@ In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to cre
 
 ![](images/add_file.png)
 
-Note:  It is possible to use your own data files. If you use an image file from your computer, make sure to conform to the naming structure mentioned above.
+    Note:  It is possible to use your own data files. If you use an image file from your computer, make sure to conform to the naming structure mentioned above.
 
 Fix-up file names for your own data file
 
@@ -90,7 +90,7 @@ In the notebook, update the global variables in the cell following
 
 2.2 Global Variables section.
 
-In the notebook, update the global variables in the cell following 2.2 Global Variables section.
+    In the notebook, update the global variables in the cell following 2.2 Global Variables section.
 
 Append the filenames list with the names of your image files
 
