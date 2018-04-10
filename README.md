@@ -35,9 +35,9 @@ Sign up for IBM's [Watson Studio](http://datascience.ibm.com/).
 By signing up for the Data Science Experience, two services will be created - ``Spark`` and ``ObjectStore`` in your Bluemix account.
 
 This code pattern is further divided into 2 sections-
-Image Classification of Documents
 
 * Image Classification of Documents
+* Text Extraction Using Optical Character Recognition
 * Entity Extraction and Document Classification
 
 # Image Classification of Documents
