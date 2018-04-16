@@ -47,7 +47,7 @@ This code pattern is further divided into 3 sections-
 The input to this code are a set of images required for training and testing of the model.
 To create your own Dataset, follow the following naming structure for each image-
 
-![](images/Labels.png)
+![](images/Dir_structure.png)
 
 Where, Cheque, Driving_License, None, Pancard and Passport are the classes required to classify by the model.
 Or 
