@@ -1,6 +1,6 @@
 # Pattern Draft
 
-This code pattern focuses on recognizing an image of documents and extract the required information using Image Recognition techniques, Optical Character Recognition, Watson Natural Language Understanding and python NLTK.
+This code pattern focuses on classify a document based on an image and extract the required information using Image Recognition techniques, Optical Character Recognition, Watson Natural Language Understanding and python NLTK.
 
 After completing this pattern, you will learn how to:
 
