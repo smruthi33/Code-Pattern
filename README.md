@@ -1,5 +1,8 @@
 # Pattern Draft
 
+This code pattern wishes to automate any legal process application. The first module will identify the legal documents submitted such as, passport, cheque or a legal form. Once the images have been identified we can extract the most useful insights from the same.
+
+
 This code pattern focuses on classify a document based on an image and extract the required information using Image Recognition techniques, Optical Character Recognition, Watson Natural Language Understanding and python NLTK.
 
 After completing this pattern, you will learn how to:
