@@ -1,6 +1,6 @@
 # Image Recognition and Information Extraction from Image Documents using Keras and Watson NLU  
 
-Application of loans, rental agreement and many such legal processes are extremely cumbersome and require high manual intervention to be able to complete an application. But, how can such a process leverage out of the recent technological advancements such as Machine Learning, Natural Language Processing and Natural Language Understanding.
+Application of loans, rental agreement and many such legal processes are extremely cumbersome and require high manual intervention. These processes usually, require the applicant to submit a few original documents along with the application form. An official is required to check these documents and identify one from the other. Furthermore he is required to extract information such as the Landlord or Tenant of the agreement if in case of a Rental agreement. So, the question is how can such processes leverage from the recent technological advancements such as Machine Learning, Natural Language Processing and Natural Language Understanding.
 
 This code pattern aims to provide an end to end solution which will help improve legal application by automating certain processes and thereby reducing the need for manual intervention. 
 
