@@ -1,6 +1,10 @@
 # Image Recognition and Information Extraction from Image Documents using Keras and Watson NLU  
 
-This code pattern wishes to automate any legal process application. The first module will identify the legal documents submitted such as, passport, cheque or a legal form. Once the images have been identified we can extract the most useful insights from the same.
+Application of loans, rental agreement and many such legal processes are extremely cumbersome and require high manual intervention to be able to complete an application. But, how can such a process leverage out of the recent technological advancements such as Machine Learning, Natural Language Processing and Natural Language Understanding.
+
+This code pattern aims to provide an end to end solution which will help improve legal application by automating certain processes and thereby reducing the need for manual intervention. 
+
+The first module will identify the legal documents submitted such as, passport, cheque or a legal form. Once the images have been identified we can extract the most useful insights from the same.
 
 
 This code pattern focuses on classify a document based on an image and extract the required information using Image Recognition techniques, Optical Character Recognition and Natural Language Processing.
