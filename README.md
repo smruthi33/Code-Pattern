@@ -7,7 +7,7 @@ This code pattern aims to provide an end to end solution which will help improve
 The first module will identify the legal documents submitted such as, passport, cheque or a legal form. Once the images have been identified, the second module converts the images to text format. Finally, the third module extracts useful information required for the legal application by leveraging rule based techniques and results from Watson Natural Language Understanding.
 
 
-This code pattern focuses on classify a document based on an image and extract the required information using Image Recognition techniques, Optical Character Recognition and Natural Language Processing.
+This code pattern focuses on classifying an image document and extract the required information using Image Recognition techniques, Optical Character Recognition and Natural Language Processing.
 
 After completing this pattern, you will learn how to:
 
