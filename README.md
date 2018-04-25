@@ -14,9 +14,6 @@ After completing this pattern, you will learn how to:
 * Perform Image Recognition using python libraries such as scikit-learn and keras(deep learning libraries)
 * Extract information using Optical Character Recognition
 * Use the IBM Watson NLU API to extract metadata from documents in Jupyter notebooks.
-* Extract and format unstructured data using simplified Python functions.
-* Create and run a Jupyter notebook in DSX.
-* Use DSX Object Storage to access data and configuration files.
 * Use a configuration file to build configurable and layered classification grammar.
 * Use the combination of grammatical classification and regex patterns from a configuration file to extract information.
 
