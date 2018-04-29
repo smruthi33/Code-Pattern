@@ -88,11 +88,11 @@ In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to cre
 ## 3. Add the data file
 
 * Add the all the files in your Data Folder to Object Storage- From the My Projects > Default page, Use Find and Add Data (look for the 10/01 icon) and its Files tab.
-* Click browse and navigate to this repo (some name)/data and select all the files
+* Click browse and navigate to this repo (some name)/data and select the zip file
 
 ![](images/add_file.png)
 
-    Note:  It is possible to use your own data files. If you use an image file from your computer, make sure to conform to the naming structure mentioned above.
+    Note:  It is possible to use your own data files. If you use an image file from your computer, make sure to conform to the directory structure mentioned above and zip it.
 
 Fix-up file names for your own data file
 
@@ -118,10 +118,10 @@ Select the cell below  2.1 Add your service credentials for Object Storage secti
 * Delete the contents of the cell
 * Use Find and Add Data (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
 * Select Insert to code (below your sample_text.txt).
-* Click Insert Crendentials from drop down menu.
-* Make sure the credentials are saved as credentials_1.
+* Click Insert StreamingBody object from drop down menu.
+* Make sure the credentials are saved as streaming_body_1.
 
-![](images/Service_credentials.png)
+![](images/add_file_imageclassification.png)
 
 ## 5.  Run the notebook
 
