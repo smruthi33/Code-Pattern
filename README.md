@@ -168,6 +168,8 @@ There are several ways to execute the code cells in your notebook:
     or 
     Use the image files provided in the git repo /input_image/Rental_agreement and /input_image/Purcahse_agreement
     
+* The output of this section will be the extracted text, saved as a text file in your current working directory. 
+    
 ### Run the notebook
 
 When a notebook is executed, what is actually happening is that each code cell in
@@ -210,10 +212,6 @@ Create the following IBM Cloud service and give a unique name for the service in
 
 
 ## 2. Create the notebook 
-
-A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
-
-Steps:
 
 In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to create a notebook.
 
@@ -282,55 +280,6 @@ Update the `username` and `password` key values in the cell below `2.1 Add your 
 * Make sure the credentials are saved as `credentials_1`.
 
 ![](images/service_credentials.png)
-
-## 5. Run the notebook
-
-When a notebook is executed, what is actually happening is that each code cell in
-the notebook is executed, in order, from top to bottom.
-
-> IMPORTANT: The first time you run your notebook, you will need to install the necessary
-packages in section 1.1 and then `Restart the kernel`.
-
-Each code cell is selectable and is preceded by a tag in the left margin. The tag
-format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
-
-* A blank, this indicates that the cell has never been executed.
-* A number, this number represents the relative order this code step was executed.
-* A `*`, this indicates that the cell is currently executing.
-
-There are several ways to execute the code cells in your notebook:
-
-* One cell at a time.
-  * Select the cell, and then press the `Play` button in the toolbar.
-* Batch mode, in sequential order.
-  * From the `Cell` menu bar, there are several options available. For example, you
-    can `Run All` cells in your notebook, or you can `Run All Below`, that will
-    start executing from the first cell under the currently selected cell, and then
-    continue executing all cells that follow.
-* At a scheduled time.
-  * Press the `Schedule` button located in the top right section of your notebook
-    panel. Here you can schedule your notebook to be executed once at some future
-    time, or repeatedly at your specified interval.
-
-
-# Analyze the Results
-
-First run the Image Classification of Documents.ipynb. This notebook will identify a set of legal document from the rest of the input documents. The identified documents are further fed into Convert_Image_to_Text.ipynb. The resulting documents produced are fed as input to the next phase.
-The notebook entity_extraction_and_document_classification.ipynb provides the required entities in the document and classify the document based on the configuration files fed as an input to the same
-
-The first module will identify the legal documents submitted such as, passport, cheque or a legal form. Once the images have been identified, the second module converts the images to text format. Finally, the third module extracts useful information required for the legal application by leveraging rule based techniques and results from Watson Natural Language Understanding.
-
-
-This code pattern focuses on classifying an image document and extract the required information using Image Recognition techniques, Optical Character Recognition and Natural Language Processing.
-
-After completing this pattern, you will learn how to:
-
-* Perform Image Recognition using python libraries such as scikit-learn and keras(deep learning libraries)
-* Extract information using Optical Character Recognition
-* Use the IBM Watson NLU API to extract metadata from documents in Jupyter notebooks.
-* Use a configuration file to build configurable and layered classification grammar.
-* Use the combination of grammatical classification and regex patterns from a configuration file to extract information.
-
 
 ## Included components
 
@@ -429,36 +378,6 @@ Select the cell below  2.1 Add your service credentials for Object Storage secti
 
 ![](images/Service_credentials.png)
 
-## 5.  Run the notebook
-
-When a notebook is executed, what is actually happening is that each code cell in
-the notebook is executed, in order, from top to bottom.
-
-> IMPORTANT: The first time you run your notebook, you will need to install the necessary
-packages in section 1.1 and then `Restart the kernel`.
-
-Each code cell is selectable and is preceded by a tag in the left margin. The tag
-format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
-
-* A blank, this indicates that the cell has never been executed.
-* A number, this number represents the relative order this code step was executed.
-* A `*`, this indicates that the cell is currently executing.
-
-There are several ways to execute the code cells in your notebook:
-
-* One cell at a time.
-  * Select the cell, and then press the `Play` button in the toolbar.
-* Batch mode, in sequential order.
-  * From the `Cell` menu bar, there are several options available. For example, you
-    can `Run All` cells in your notebook, or you can `Run All Below`, that will
-    start executing from the first cell under the currently selected cell, and then
-    continue executing all cells that follow.
-* At a scheduled time.
-  * Press the `Schedule` button located in the top right section of your notebook
-    panel. Here you can schedule your notebook to be executed once at some future
-    time, or repeatedly at your specified interval.
-
-
 # Text Extraction Using Optical Character Recognition
 
 * Install Tesseract OCR. Follow the instructions according to you system specifications
@@ -474,36 +393,6 @@ There are several ways to execute the code cells in your notebook:
     or 
     Use the image files provided in the git repo /input_image/Rental_agreement and /input_image/Purcahse_agreement
     
-### Run the notebook
-
-When a notebook is executed, what is actually happening is that each code cell in
-the notebook is executed, in order, from top to bottom.
-
-> IMPORTANT: The first time you run your notebook, you will need to install the necessary
-packages in section 1.1 and then `Restart the kernel`.
-
-Each code cell is selectable and is preceded by a tag in the left margin. The tag
-format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
-
-* A blank, this indicates that the cell has never been executed.
-* A number, this number represents the relative order this code step was executed.
-* A `*`, this indicates that the cell is currently executing.
-
-There are several ways to execute the code cells in your notebook:
-
-* One cell at a time.
-  * Select the cell, and then press the `Play` button in the toolbar.
-* Batch mode, in sequential order.
-  * From the `Cell` menu bar, there are several options available. For example, you
-    can `Run All` cells in your notebook, or you can `Run All Below`, that will
-    start executing from the first cell under the currently selected cell, and then
-    continue executing all cells that follow.
-* At a scheduled time.
-  * Press the `Schedule` button located in the top right section of your notebook
-    panel. Here you can schedule your notebook to be executed once at some future
-    time, or repeatedly at your specified interval.
-
-
 # Entity Extraction and Document Classification
 
 ## 1. Create IBM Cloud services
@@ -588,7 +477,11 @@ Update the `username` and `password` key values in the cell below `2.1 Add your 
 
 ![](images/service_credentials.png)
 
-## 5. Run the notebook
+
+# Run the notebooks
+
+First run the Image Classification of Documents.ipynb. This notebook will identify a set of legal document from the rest of the input documents. The identified documents are further fed into Convert_Image_to_Text.ipynb. The resulting documents produced are fed as input to the next phase.
+The notebook entity_extraction_and_document_classification.ipynb provides the required entities in the document and classify the document based on the configuration files fed as an input to the same
 
 When a notebook is executed, what is actually happening is that each code cell in
 the notebook is executed, in order, from top to bottom.
@@ -618,7 +511,7 @@ There are several ways to execute the code cells in your notebook:
     time, or repeatedly at your specified interval.
 
 
+
+
 # Analyze the Results
 
-First run the Image Classification of Documents.ipynb. This notebook will identify a set of legal document from the rest of the input documents. The identified documents are further fed into Convert_Image_to_Text.ipynb. The resulting documents produced are fed as input to the next phase.
-The notebook entity_extraction_and_document_classification.ipynb provides the required entities in the document and classify the document based on the configuration files fed as an input to the same
