@@ -80,10 +80,10 @@ In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to cre
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
 * Enter this Notebook URL: https://github.com/smruthi33/Code-Pattern/blob/master/code/Image%20Classification%20of%20Documents.ipynb
-* Select the free Anaconda runtime.
+* Select the free Anaconda runtime with 4 vCPU and 16 GB RAM .
 * Click the Create button.
 
-![](images/create_notebook_from_url.png)
+![](images/create_notebook_from_url_imageclassification.png)
 
 ## 3. Add the data file
 
