@@ -155,7 +155,7 @@ There are several ways to execute the code cells in your notebook:
 
 # Text Extraction Using Optical Character Recognition
 
-* Install Tesseract OCR. Follow the instructions according to you system specifications
+* [Install Tesseract OCR](https://github.com/tesseract-ocr/tesseract/wiki). Follow the instructions according to you system specifications
 * In the repo download the notebook Convert_Image_to_Text.ipynb 
 
     ### Configuration
