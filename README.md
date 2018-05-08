@@ -120,12 +120,21 @@ Select the cell below  2.1 Add your service credentials for Object Storage secti
 
 * Delete the contents of the cell
 * Use Find and Add Data (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
-* Select Insert to code (below your sample_text.txt).
+* Select Insert to code.
 * Click Insert StreamingBody object from drop down menu.
 * Make sure the credentials are saved as streaming_body_1.
 
 ![](images/add_file_imageclassification.png)
 
+Select the cell in Section 4.4
+
+* Delete the contents of the cell
+* Use Find and Add Data (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
+* Select Insert to code.
+* Click Insert StreamingBody object from drop down menu.
+* Make sure the credentials are saved as streaming_body_2.
+
+![](images/add_file_imageclassification_testing.png)
 
 # Text Extraction Using Optical Character Recognition
 
