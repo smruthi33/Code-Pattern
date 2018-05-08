@@ -60,6 +60,8 @@ Where, Cheque, Driving_License, None, Pancard and Passport are the classes requi
 Or 
 You may also use the sample training images provided in the git repo, in the Data folder.
 
+Convert the Data folder to a zip file.
+
 ## 2. Create the notebook 
 
 A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
