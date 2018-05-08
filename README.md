@@ -20,7 +20,7 @@ After completing this pattern, you will learn how to:
 
 ## Included components
 
-* [IBM Watson Studio](https://www.ibm.com/bs-en/marketplace/data-science-experience): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
+* [IBM Watson Studio](https://console.bluemix.net/catalog/services/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
 
 * [IBM Cloud Object Storage](https://console.bluemix.net/catalog/infrastructure/cloud-object-storage): An IBM Cloud service that provides an unstructured cloud data store to build and deliver cost effective apps and services with high reliability and fast speed to market.
 
@@ -38,7 +38,7 @@ After completing this pattern, you will learn how to:
 
 ## 1. Sign up for IBM Watson Studio
 
-Sign up for IBM's [Watson Studio](http://datascience.ibm.com/). 
+Sign up for IBM's [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio). 
 By signing up for IBM Watson Studio, two services will be created - ``Spark`` and ``ObjectStore`` in your IBM Cloud account.
 
 This code pattern is further divided into 3 sections-
@@ -68,7 +68,7 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 
 Steps:
 
-In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to create a notebook.
+In [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio), click on Create notebook to create a notebook.
 
 * In Watson Studio, click on Create notebook to create a notebook.
 * Create a project if necessary, provisioning an object storage service if required.
@@ -151,7 +151,7 @@ Create the following IBM Cloud service and give a unique name for the service in
 
 ## 2. Create the notebook 
 
-In [Watson Studio](http://datascience.ibm.com/), click on Create notebook to create a notebook.
+In [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio), click on Create notebook to create a notebook.
 
 * In Watson Studio, click on Create notebook to create a notebook.
 * Create a project if necessary, provisioning an object storage service if required.
