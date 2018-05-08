@@ -52,6 +52,8 @@ This code pattern is further divided into 3 sections-
 ## 1.  Prepare the Data
 
 The input to this code are a set of images required for training and testing of the model.
+### Train Images
+
 To create your own Dataset, follow the following naming structure for each image-
 
 ![](images/Dir_structure-1.png)
@@ -61,6 +63,10 @@ Or
 You may also use the sample training images provided in the git repo, in the Data folder.
 
 Convert the Data folder to a zip file.
+
+### Test Images
+
+Supply all the images required to test and save it in a folder. Make this folder a zip file.
 
 ## 2. Create the notebook 
 
@@ -85,7 +91,7 @@ In [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio), 
 ## 3. Add the data file
 
 * Add the all the files in your Data Folder to Object Storage- From the My Projects > Default page, Use Find and Add Data (look for the 10/01 icon) and its Files tab.
-* Click browse and navigate to this repo (some name)/data and select the zip file
+* Click browse and navigate to this repo (some name)/data and select the zip files(train and test).
 
 ![](images/add_file.png)
 
