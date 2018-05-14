@@ -279,5 +279,7 @@ These file are fed as input to the second notebook `conv_img_to_txt.ipynb`. This
 
 Finally, run the notebook `Entity Extraction and Document Classification` in order to obtain the important entities in the document as well as the final classification of the document.
 
-![](images/analyze_res2.png)                                            ![](images/analyze_res3.png)
+![](images/analyze_res2.png)                                           
+
+![](images/analyze_res3.png)
 
