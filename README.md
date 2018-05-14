@@ -66,8 +66,8 @@ Convert the Data folder to a zip file.
 
 For MACOSX use the following commands to remove the redundant folders/files created-
 
-zip -d Data_Folder.zip __MACOSX/\*
-zip -d Data_Folder.zip \*/.DS_Store
+* zip -d Data_Folder.zip __MACOSX/\*
+* zip -d Data_Folder.zip \*/.DS_Store
 
 ### Test Images
 
@@ -75,8 +75,8 @@ Supply all the images required to test and save it in a folder. Make this folder
 
 For MACOSX use the following commands to remove the redundant folders/files created-
 
-zip -d test_doc-external.zip __MACOSX/\*
-zip -d test_doc-external.zip \*/.DS_Store
+* zip -d test_doc-external.zip __MACOSX/\*
+* zip -d test_doc-external.zip \*/.DS_Store
 
 ## 2. Create the notebook 
 
