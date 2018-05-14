@@ -271,9 +271,7 @@ There are several ways to execute the code cells in your notebook:
 
 # Analyze the Results
 
-This pattern aims to automate the identification of legal form document from other such documents and further extract useful information to classify the kind of legal form document it is. First, run the `Image Classification of Documnet.ipynb` notebook. The output will provide the names of the files which have been identified as a form document, as shown below:
-
-
+This pattern aims to automate the identification of legal form document from other such documents and further extract useful information to classify the kind of legal form document it is. First, run the `Image Classification of Documnet.ipynb` notebook. The output will provide the names of the files which have been identified as a form document, as `test_doc-external/Form1 copy 2.jpg`
 
 These file are fed as input to the second notebook `conv_img_to_txt.ipynb`. This will convert the contents of the legal form into text and save the text file on object storage.
 
