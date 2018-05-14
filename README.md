@@ -147,9 +147,12 @@ Select the cell in Section 4.4
          
     ![](images/global_variables_OCR.png)    
          
-    Replace the filename with the path of your image files and name with the desired output text file name
-    or 
-    Use the image files provided in the git repo /input_image/Rental_agreement and /input_image/Purcahse_agreement
+    Replace the filename with the path of your image files given as ouput from the previous step and name with the desired output text file name
+    
+    Create a `credentials.json` file containing the credentials from the cloud object storage bucket used for the project.
+    
+    
+    
     
 * The output of this section will be the extracted text, saved as a text file in your current working directory. 
     
