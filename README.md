@@ -64,9 +64,19 @@ You may also use the sample training images provided in the git repo, in the Dat
 
 Convert the Data folder to a zip file.
 
+For MACOSX use the following commands to remove the redundant folders/files created-
+
+zip -d Data_Folder.zip __MACOSX/\*
+zip -d Data_Folder.zip \*/.DS_Store
+
 ### Test Images
 
-Supply all the images required to test and save it in a folder. Make this folder a zip file.
+Supply all the images required to test and save it in a folder. Make this folder `testdoc-external` zip file.
+
+For MACOSX use the following commands to remove the redundant folders/files created-
+
+zip -d test_doc-external.zip __MACOSX/\*
+zip -d test_doc-external.zip \*/.DS_Store
 
 ## 2. Create the notebook 
 
@@ -101,6 +111,8 @@ Fix-up file names for your own data file
 
 If you use your own data and configuration files, you will need to update the variables that refer to the data files in the Jupyter Notebook.
 
+To open the notebook, click on the edit icon to start editing the notebook on your project.
+
 In the notebook, update the global variables in the cell following
 
 2.2 Global Variables section.
@@ -134,6 +146,8 @@ Select the cell in Section 4.4
 * Click Insert StreamingBody object from drop down menu.
 * Make sure the credentials are saved as streaming_body_2.
 
+Run the notebook by clicking on Cell>Run all in the menu bar.
+
 ![](images/add_file_imageclassification_testing.png)
 
 # Text Extraction Using Optical Character Recognition
@@ -157,6 +171,8 @@ Select the cell in Section 4.4
     Update the path to the obtained json file in `2.2 Connect to Object Storage`. 
     
 * The output of this section will be the extracted text, saved as a text file in your current working directory. 
+
+Run the notebook by clicking on Cell>Run all in the menu bar.
     
 # Entity Extraction and Document Classification
 
@@ -200,6 +216,8 @@ Fix-up file names for your own data file
 
 If you use your own data and configuration files, you will need to update the variables that refer to the data files in the Jupyter Notebook.
 
+To open the notebook, click on the edit icon to start editing the notebook on your project.
+
 In the notebook, update the global variables in the cell following
 
 2.2 Global Variables section.
@@ -238,6 +256,8 @@ Update the `username` and `password` key values in the cell below `2.1 Add your 
 * Make sure the credentials are saved as `credentials_1`.
 
 ![](images/service_credentials.png)
+
+Run the notebook by clicking on Cell>Run all in the menu bar.
 
 # Run the notebooks
 
