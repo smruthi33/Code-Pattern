@@ -152,7 +152,7 @@ Select the cell in Section 4.4
     Create a `credentials.json` file containing the credentials from the cloud object storage bucket used for the project.
     Go to your Cloud Object Storage instance and click on Service Credentials. In the desired bucket relevant to your project on Watson Studio, click on View Credentials
     
-    ![](images/credentials_json.png)    
+    ![](images/credential_json.png)    
     
     Update the path to the obtained json file in `2.2 Connect to Object Storage`. 
     
