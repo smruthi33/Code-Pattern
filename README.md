@@ -150,9 +150,11 @@ Select the cell in Section 4.4
     Replace the filename with the path of your image files given as ouput from the previous step and name with the desired output text file name
     
     Create a `credentials.json` file containing the credentials from the cloud object storage bucket used for the project.
+    Go to your Cloud Object Storage instance and click on Service Credentials. In the desired bucket relevant to your project on Watson Studio, click on View Credentials
     
+    ![](images/credentials_json.png)    
     
-    
+    Update the path to the obtained json file in `2.2 Connect to Object Storage`. 
     
 * The output of this section will be the extracted text, saved as a text file in your current working directory. 
     
