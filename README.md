@@ -159,7 +159,7 @@ Run the notebook by clicking on Cell>Run all in the menu bar.
          Fix-up file names for your filename and configuration files in the `2.1 Global Variables` section. 
          In the notebook, update the global variables in the cell following `2.1 Global Variables` section.
          
-    ![](images/global_variables_OCR.png)    
+    ![](images/analyze_res1.png)    
          
     Replace the filename with the path of your image files given as ouput from the previous step and name with the desired output text file name
     
@@ -296,15 +296,21 @@ There are several ways to execute the code cells in your notebook:
 
 # Analyze the Results
 
-This pattern aims to automate the identification of legal form document from other such documents and further extract useful information to classify the kind of legal form document it is. First, run the `Image Classification of Documnet.ipynb` notebook. The output will provide the names of the files which have been identified as a form document, as `test_doc-external/Form1 copy 2.jpg`
+This pattern aims to automate the identification of legal form document from other such documents and further extract useful information to classify the kind of legal form document it is. 
 
-These file are fed as input to the second notebook `conv_img_to_txt.ipynb`. This will convert the contents of the legal form into text and save the text file on object storage.
+### Step: 1
+Run the `Image Classification of Documnet.ipynb` notebook. The output will provide the names of the files which have been identified as a form document, example, `test_doc-external/Form1 copy 2.jpg`
+### Step: 2
+The files obtained as output in Step: 1 are fed as input to the second notebook `conv_img_to_txt.ipynb`. This will convert the contents of the legal form into text and save the text file on object storage.
 
-![](images/analyze_res1.png)
+### Step: 3
+Finally, run the notebook `Entity Extraction and Document Classification` in order to obtain the important entities in the document as well as the final classification of the document. The following is the output received by this notebook.
 
-Finally, run the notebook `Entity Extraction and Document Classification` in order to obtain the important entities in the document as well as the final classification of the document.
+#### Entities Extracted
 
-![](images/analyze_res2.png)                                           
+![](images/analyze_res2.png)         
+
+#### Document Classification
 
 ![](images/analyze_res3.png)
 
