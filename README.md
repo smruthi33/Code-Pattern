@@ -304,9 +304,9 @@ Run the `Image Classification of Documnet.ipynb` notebook. The output will provi
 The files obtained as output in Step: 1 are fed as input to the second notebook `conv_img_to_txt.ipynb`. This will convert the contents of the legal form into text and save the text file on object storage.
 
 ### Step: 3
-Finally, run the notebook `Entity Extraction and Document Classification` in order to obtain the important entities in the document as well as the final classification of the document. The following is the output received by this notebook.
+Finally, run the notebook `Entity Extraction and Document Classification.ipynb` in order to obtain the important entities in the document as well as the final classification of the document. The following is the output received by this notebook.
 
-#### Entities Extracted
+#### Entity Extraction
 
 ![](images/analyze_res2.png)         
 
