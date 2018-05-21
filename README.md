@@ -46,9 +46,16 @@ After completing this pattern, you will learn how to:
 * [Python](https://www.python.org/): An interpreted high-level programming language for general-purpose programming
 
 
-## Steps
+# Steps
+Follow these steps to setup and run this developer journey. The steps are described in detail below.
 
-### Sign up for IBM Watson Studio
+1. [Sign up for IBM Watson Studio](#1-sign-up-for-ibm-watson-studio)
+2. [Classification of image Documents](#2-classification-of-image-documents)
+3. [Text Extraction Using Optical Character Recognition](#3-text-extraction-using-optical-character-recognition)
+4. [Entity Extraction and Document Classification](#4-entity-extraction-and-document-classification)
+5. [Analyze the Results](#5-analyze-the-results)
+
+## 1. Sign up for IBM Watson Studio
 
 Sign up for IBM's [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio).
 By signing up for IBM Watson Studio, two services will be created - ``Spark`` and ``ObjectStore`` in your IBM Cloud account.
@@ -59,12 +66,12 @@ This code pattern is further divided into 3 sections-
 * Text Extraction Using Optical Character Recognition
 * Entity Extraction and Document Classification
 
-### Classification of image Documents
+## 2. Classification of image Documents
 
-#### Prepare Data
+### 2.1 Prepare Data
 
 The input to this code are a set of images required for training and testing of the model.
-####   Training Images
+### 2.2   Train Images
 
 To create your own Dataset, follow the following naming structure for each image-
 
@@ -81,7 +88,7 @@ For MACOSX use the following commands to remove the redundant folders/files crea
 * zip -d Data_Folder.zip \__MACOSX/\\*
 * zip -d Data_Folder.zip \\\*/.DS_Store
 
-### Test Images
+### 2.3 Test Images
 
 Supply all the images required to test and save it in a folder. Make this folder `testdoc-external` zip file.
 
@@ -90,11 +97,9 @@ For MACOSX use the following commands to remove the redundant folders/files crea
 * zip -d test_doc-external.zip \__MACOSX/\\*
 * zip -d test_doc-external.zip \\\*/.DS_Store
 
-## 2. Create the notebook
+### 2.4 Create notebook
 
 A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
-
-Steps:
 
 In [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio), click on Create notebook to create a notebook.
 
@@ -110,7 +115,7 @@ In [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio), 
 
 ![](images/create_notebook_from_url_imageclassification.png)
 
-## 3. Add the data file
+### 2.5 Add data files
 
 * Add the all the files in your Data Folder to Object Storage- From the My Projects > Default page, Use Find and Add Data (look for the 10/01 icon) and its Files tab.
 * Click browse and navigate to this repo (some name)/data and select the zip files(train and test).
@@ -136,7 +141,7 @@ Enter the desired batch_sizes for your training, validation and testing datasets
 ![](images/global_variables.png)
 
 
-## 4. Update the notebook with service credentials
+### 2.6 Update notebook with service credentials
 
 Add the Object Storage credentials to the notebook
 
@@ -162,7 +167,7 @@ Run the notebook by clicking on Cell>Run all in the menu bar.
 
 ![](images/add_file_imageclassification_testing.png)
 
-# Text Extraction Using Optical Character Recognition
+## 3. Text Extraction Using Optical Character Recognition
 
 * [Install Tesseract OCR](https://github.com/tesseract-ocr/tesseract/wiki). Follow the instructions according to you system specifications
 * In the repo download the notebook Convert_Image_to_Text.ipynb
@@ -186,9 +191,9 @@ Run the notebook by clicking on Cell>Run all in the menu bar.
 
 Run the notebook by clicking on Cell>Run all in the menu bar.
 
-# Entity Extraction and Document Classification
+## 4. Entity Extraction and Document Classification
 
-## 1. Create IBM Cloud services
+### 4.1 Create IBM Cloud services
 
 Create the following IBM Cloud service and give a unique name for the service instance:
 
@@ -197,7 +202,7 @@ Create the following IBM Cloud service and give a unique name for the service in
 ![](images/bluemix_service_nlu.png)
 
 
-## 2. Create the notebook
+### 4.2 Create notebook
 
 In [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio), click on Create notebook to create a notebook.
 
@@ -214,7 +219,7 @@ In [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio), 
 ![](images/create_notebook_from_url.png)
 
 
-## 3. Add the data file
+### 4.3 Add the data file
 
 * Add the all the files in your Data Folder to Object Storage- From the My Projects > Default page, Use Find and Add Data (look for the 10/01 icon) and its Files tab.
 * Upload the text files obtained as a result of 'Text Extraction Using Optical Character Recognition'
@@ -240,9 +245,9 @@ In the notebook, update the global variables in the cell following 2.2 Global Va
 
 ![](images/global_variables_entity.png)
 
-## 4. Update the notebook with service credentials
+### 4.4 Update the notebook with service credentials
 
-#### Add the Watson Natural Language Understanding credentials to the notebook
+#### 4.4.1 Add the Watson Natural Language Understanding credentials to the notebook
 Select the cell below `2.1 Add your service credentials from IBM Cloud for the Watson services` section in the notebook to update the credentials for Watson Natural Langauage Understanding.
 
 Open the Watson Natural Language Understanding service in your [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/services) and click on your service, which you should have named `wdc-NLU-service`.
@@ -259,7 +264,7 @@ Update the `username` and `password` key values in the cell below `2.1 Add your 
 
 ![](images/watson_nlu_credentials.png)
 
-#### Add the Object Storage credentials to the notebook
+#### 4.4.2 Add the Object Storage credentials to the notebook
 * Select the cell below `2.2 Add your service credentials for Object Storage` section in the notebook to update the credentials for Object Store.
 * Delete the contents of the cell
 * Use `Find and Add Data` (look for the `10/01` icon) and its `Files` tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below `2.2 Add...`
@@ -271,42 +276,8 @@ Update the `username` and `password` key values in the cell below `2.1 Add your 
 
 Run the notebook by clicking on Cell>Run all in the menu bar.
 
-# Run the notebooks
 
-First run the Image Classification of Documents.ipynb. This notebook will identify a set of legal document from the rest of the input documents. The identified documents are further fed into Convert_Image_to_Text.ipynb. The resulting documents produced are fed as input to the next phase.
-The notebook entity_extraction_and_document_classification.ipynb provides the required entities in the document and classify the document based on the configuration files fed as an input to the same
-
-When a notebook is executed, what is actually happening is that each code cell in
-the notebook is executed, in order, from top to bottom.
-
-> IMPORTANT: The first time you run your notebook, you will need to install the necessary
-packages in section 1.1 and then `Restart the kernel`.
-
-Each code cell is selectable and is preceded by a tag in the left margin. The tag
-format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
-
-* A blank, this indicates that the cell has never been executed.
-* A number, this number represents the relative order this code step was executed.
-* A `*`, this indicates that the cell is currently executing.
-
-There are several ways to execute the code cells in your notebook:
-
-* One cell at a time.
-  * Select the cell, and then press the `Play` button in the toolbar.
-* Batch mode, in sequential order.
-  * From the `Cell` menu bar, there are several options available. For example, you
-    can `Run All` cells in your notebook, or you can `Run All Below`, that will
-    start executing from the first cell under the currently selected cell, and then
-    continue executing all cells that follow.
-* At a scheduled time.
-  * Press the `Schedule` button located in the top right section of your notebook
-    panel. Here you can schedule your notebook to be executed once at some future
-    time, or repeatedly at your specified interval.
-
-
-
-
-# Analyze the Results
+## 5. Analyze the Results
 
 This pattern aims to automate the identification of legal form document from other such documents and further extract useful information to classify the kind of legal form document it is.
 
