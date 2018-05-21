@@ -46,7 +46,9 @@ After completing this pattern, you will learn how to:
 * [Python](https://www.python.org/): An interpreted high-level programming language for general-purpose programming
 
 
-## 1. Sign up for IBM Watson Studio
+## Steps
+
+### Sign up for IBM Watson Studio
 
 Sign up for IBM's [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio).
 By signing up for IBM Watson Studio, two services will be created - ``Spark`` and ``ObjectStore`` in your IBM Cloud account.
@@ -57,12 +59,12 @@ This code pattern is further divided into 3 sections-
 * Text Extraction Using Optical Character Recognition
 * Entity Extraction and Document Classification
 
-# Image Classification of Documents
+### Classification of image Documents
 
-## 1.  Prepare the Data
+#### Prepare Data
 
 The input to this code are a set of images required for training and testing of the model.
-### Train Images
+####   Training Images
 
 To create your own Dataset, follow the following naming structure for each image-
 
@@ -76,8 +78,8 @@ Convert the Data folder to a zip file.
 
 For MACOSX use the following commands to remove the redundant folders/files created-
 
-* zip -d Data_Folder.zip __MACOSX/\*
-* zip -d Data_Folder.zip \*/.DS_Store
+* zip -d Data_Folder.zip \__MACOSX/\\*
+* zip -d Data_Folder.zip \\\*/.DS_Store
 
 ### Test Images
 
@@ -85,8 +87,8 @@ Supply all the images required to test and save it in a folder. Make this folder
 
 For MACOSX use the following commands to remove the redundant folders/files created-
 
-* zip -d test_doc-external.zip __MACOSX/\*
-* zip -d test_doc-external.zip \*/.DS_Store
+* zip -d test_doc-external.zip \__MACOSX/\\*
+* zip -d test_doc-external.zip \\\*/.DS_Store
 
 ## 2. Create the notebook
 
