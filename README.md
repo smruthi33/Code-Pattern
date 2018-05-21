@@ -19,13 +19,13 @@ After completing this pattern, you will learn how to:
 
 ## Flow
 ![WKSCreateProject](images/Architecture.png)
-1 - User provides a set of images for classification to a trained machine learning model
-2 - Classified image files are stored in Object Storage
-3 - User runs Jupyter notebook for text extraction, by providing the form document image
-4 - Extracted text from form document image is stored in Object Storage as text files
-5 - User runs notebook for entity extraction
-6 - Pull the text files from Object storage
-7 - Pass the text to NLU to extract entities
+1. User provides a set of images for classification to a trained machine learning model
+2. Classified image files are stored in Object Storage
+3. User runs Jupyter notebook for text extraction, by providing the form document image
+4. Extracted text from form document image is stored in Object Storage as text files
+5. User runs notebook for entity extraction
+6. Pull the text files from Object storage
+7. Pass the text to NLU to extract entities
 
 
 ## Included components
