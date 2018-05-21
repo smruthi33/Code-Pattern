@@ -2,7 +2,7 @@
 
 Application of loans, rental agreement and many such legal processes are extremely cumbersome and require high manual intervention. These processes usually, require the applicant to submit a few original documents along with the application form. An official is required to check these documents and identify one from the other. Furthermore he is required to extract information such as the Landlord or Tenant of the agreement if in case of a Rental agreement. So, the question is how can such processes leverage from the recent technological advancements such as Machine Learning, Natural Language Processing and Natural Language Understanding.
 
-This code pattern aims to provide an end to end solution which will help improve legal application by automating certain processes and thereby reducing the need for manual intervention. 
+This code pattern aims to provide an end to end solution which will help improve legal application by automating certain processes and thereby reducing the need for manual intervention.
 
 The first module will identify the legal documents submitted such as, passport, cheque or a legal form. Once the images have been identified, the second module converts the images to text format. Finally, the third module extracts useful information required for the legal application by leveraging rule based techniques and results from Watson Natural Language Understanding.
 
@@ -16,6 +16,16 @@ After completing this pattern, you will learn how to:
 * Use the IBM Watson NLU API to extract metadata from documents in Jupyter notebooks.
 * Use a configuration file to build configurable and layered classification grammar.
 * Use the combination of grammatical classification and regex patterns from a configuration file to extract information.
+
+## Flow
+![WKSCreateProject](images/Architecture.png)
+1 - User provides a set of images for classification to a trained machine learning model
+2 - Classified image files are stored in Object Storage
+3 - User runs Jupyter notebook for text extraction, by providing the form document image
+4 - Extracted text from form document image is stored in Object Storage as text files
+5 - User runs notebook for entity extraction
+6 - Pull the text files from Object storage
+7 - Pass the text to NLU to extract entities
 
 
 ## Included components
@@ -32,13 +42,13 @@ After completing this pattern, you will learn how to:
 * [Jupyter Notebooks](http://jupyter.org/): An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
 * [Artificial Intelligence](https://www.computerworld.com/article/2906336/emerging-technology/what-is-artificial-intelligence.html): Intelligence demonstrated by machines, in contrast to the natural intelligence displayed by humans.
 * [Machine Learning](https://searchenterpriseai.techtarget.com/definition/machine-learning-ML): Uses statistical techniques to give computer systems the ability to "learn" with data
-* [Natural Language Processing](https://machinelearningmastery.com/natural-language-processing/): the ability of a computer program to understand human language as it is spoken. NLP is a component of Artificial Intelligence 
+* [Natural Language Processing](https://machinelearningmastery.com/natural-language-processing/): the ability of a computer program to understand human language as it is spoken. NLP is a component of Artificial Intelligence
 * [Python](https://www.python.org/): An interpreted high-level programming language for general-purpose programming
 
 
 ## 1. Sign up for IBM Watson Studio
 
-Sign up for IBM's [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio). 
+Sign up for IBM's [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio).
 By signing up for IBM Watson Studio, two services will be created - ``Spark`` and ``ObjectStore`` in your IBM Cloud account.
 
 This code pattern is further divided into 3 sections-
@@ -59,7 +69,7 @@ To create your own Dataset, follow the following naming structure for each image
 ![](images/Dir_structure-1.png)
 
 Where, Cheque, Driving_License, None, Pancard and Passport are the classes required to classify by the model.
-Or 
+Or
 You may also use the sample training images provided in the git repo, in the Data folder.
 
 Convert the Data folder to a zip file.
@@ -78,7 +88,7 @@ For MACOSX use the following commands to remove the redundant folders/files crea
 * zip -d test_doc-external.zip __MACOSX/\*
 * zip -d test_doc-external.zip \*/.DS_Store
 
-## 2. Create the notebook 
+## 2. Create the notebook
 
 A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
 
@@ -153,27 +163,27 @@ Run the notebook by clicking on Cell>Run all in the menu bar.
 # Text Extraction Using Optical Character Recognition
 
 * [Install Tesseract OCR](https://github.com/tesseract-ocr/tesseract/wiki). Follow the instructions according to you system specifications
-* In the repo download the notebook Convert_Image_to_Text.ipynb 
+* In the repo download the notebook Convert_Image_to_Text.ipynb
 
     ### Configuration
-         Fix-up file names for your filename and configuration files in the `2.1 Global Variables` section. 
+         Fix-up file names for your filename and configuration files in the `2.1 Global Variables` section.
          In the notebook, update the global variables in the cell following `2.1 Global Variables` section.
-         
+
     ![](images/analyze_res1.png)    
-         
+
     Replace the filename with the path of your image files given as ouput from the previous step and name with the desired output text file name
-    
+
     Create a `credentials.json` file containing the credentials from the cloud object storage bucket used for the project.
     Go to your Cloud Object Storage instance and click on Service Credentials. In the desired bucket relevant to your project on Watson Studio, click on View Credentials
-    
+
     ![](images/credential_json.png)    
-    
-    Update the path to the obtained json file in `2.2 Connect to Object Storage`. 
-    
-* The output of this section will be the extracted text, saved as a text file in your current working directory. 
+
+    Update the path to the obtained json file in `2.2 Connect to Object Storage`.
+
+* The output of this section will be the extracted text, saved as a text file in your current working directory.
 
 Run the notebook by clicking on Cell>Run all in the menu bar.
-    
+
 # Entity Extraction and Document Classification
 
 ## 1. Create IBM Cloud services
@@ -185,7 +195,7 @@ Create the following IBM Cloud service and give a unique name for the service in
 ![](images/bluemix_service_nlu.png)
 
 
-## 2. Create the notebook 
+## 2. Create the notebook
 
 In [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio), click on Create notebook to create a notebook.
 
@@ -231,7 +241,7 @@ In the notebook, update the global variables in the cell following 2.2 Global Va
 ## 4. Update the notebook with service credentials
 
 #### Add the Watson Natural Language Understanding credentials to the notebook
-Select the cell below `2.1 Add your service credentials from IBM Cloud for the Watson services` section in the notebook to update the credentials for Watson Natural Langauage Understanding. 
+Select the cell below `2.1 Add your service credentials from IBM Cloud for the Watson services` section in the notebook to update the credentials for Watson Natural Langauage Understanding.
 
 Open the Watson Natural Language Understanding service in your [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/services) and click on your service, which you should have named `wdc-NLU-service`.
 
@@ -296,7 +306,7 @@ There are several ways to execute the code cells in your notebook:
 
 # Analyze the Results
 
-This pattern aims to automate the identification of legal form document from other such documents and further extract useful information to classify the kind of legal form document it is. 
+This pattern aims to automate the identification of legal form document from other such documents and further extract useful information to classify the kind of legal form document it is.
 
 ### Step: 1
 Run the `Image Classification of Documnet.ipynb` notebook. The output will provide the names of the files which have been identified as a form document, example, `test_doc-external/Form1 copy 2.jpg`
@@ -313,4 +323,3 @@ Finally, run the notebook `Entity Extraction and Document Classification.ipynb` 
 #### Document Classification
 
 ![](images/analyze_res3.png)
-
