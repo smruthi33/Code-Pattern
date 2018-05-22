@@ -1,13 +1,11 @@
 # Image Recognition and Information Extraction from Image Documents using Keras and Watson NLU  
 
-Generally, processing of applications, such as loan applications, require processing of scanned images. Scanned images can be identity proof document, address proof document along with the actual application form itself as a scanned image. Processing these documents and identifying relevant information from documents can be extremely cumbersome and require high manual intervention. Most of the information is captured in application form document. Current process involve a human to identify the application form, read through the application forms and identify specific information from application forms. This code pattern shows how such processes can leverage Machine Learning, Natural Language Processing and Natural Language Understanding services and automate identifying relevant information from applications.
+Many organisations process application forms, such as loan applications, from it's customers. Along with the application forms, customers provide other documents needed for processing the application. These additional documents are such are identity proof document, address proof document. Generally these application forms, along with supporting documents, are scanned and captured into the organisation's systems for further processing of applications. Processing these documents and identifying relevant information from documents can be extremely cumbersome and require high manual intervention. Most of the information is captured in application form document. Current process involves a human to identify type application form, read through application forms and identify specific information from application forms. This code pattern shows how such processes can leverage Machine Learning, Natural Language Processing and Natural Language Understanding services and automate identifying relevant information from images.
 
 This code pattern covers the following aspects:
 * Classify images so as to separate out the application form document
 * Extract text from the application form document
 * Identify specific information from application form documents
-
-This code pattern focuses on classifying an image document and extract the required information using Image Recognition techniques, Optical Character Recognition and Natural Language Processing.
 
 After completing this pattern, you will learn how to:
 
@@ -16,6 +14,11 @@ After completing this pattern, you will learn how to:
 * Use the IBM Watson NLU API to extract metadata from documents in Jupyter notebooks.
 * Use a configuration file to build configurable and layered classification grammar.
 * Use the combination of grammatical classification and regex patterns from a configuration file to extract information.
+
+In this code pattern, we have considered applications for `Purchase Agreement` and `Rental Agreement`. Typical documents that are submitted for these applications are PAN (Permanent Account Number) card, Driving License, Cheque leaf, Passport and the application form itself. This code pattern identifies the application form document from all the other application documents. Text is extracted from the image of application form document. From the text thus extracted, information, relevant to the type of application, is identified using Watson's natural language processing capabilities. What information to identify from what type of document is guided by configuration files.
+
+We will use Python, Jupyter notebook, SK-Learn and Keras libraries, Watson Natural Language Understanding service and IBM Cloud Object Storage
+
 
 ## Flow
 ![WKSCreateProject](images/Architecture.png)
@@ -46,16 +49,6 @@ After completing this pattern, you will learn how to:
 * [Python](https://www.python.org/): An interpreted high-level programming language for general-purpose programming
 
 
-## Overview
-In this code pattern, we have considered applications for purchase agreement and rental agreement. Typical documents that are submitted for these applications are PAN (Permanent Account Number) card, Driving License, Cheque leaf, Passport and the application form itself. When an application is made user uploads scanned images of above documents. These documents are classified and application form document is identified from it. Text is extracted from the image of application form document. From the text thus extracted, information, relevant to the type of application, is identified using Watson's natural language processing capabilities.
-
-There are two configuration files.
-1. To specify the information to look into application form documents.
-2. To identify what application documents it is
-
-We will use Python, Jupyter notebook, SK-Learn and Keras libraries, Watson Natural Language Understanding service and IBM Cloud Object Storage
-
-
 # Steps
 Follow these steps to setup and run this developer journey. The steps are described in detail below.
 
@@ -77,7 +70,7 @@ If you have not already signed up for Watson Studio then you can sign up [here](
 
 Training a machine learning model requires a large number of documents and variety in them. While we have trained and tested the methodology followed in this code pattern which given pretty good accuracy (>85%) with a large dataset, we cannot provide those images since they are not open images. For the sake of executing this code pattern and understand the methodology we have provided one of our personal documents and masked personal information on those documents. Please note that multiple copies, with resolution and color changes, of same kind of documents are provided. It is recommended that the user create their own set of images and use them in this code pattern so that they can see real benefits of this code pattern.
 
-To create your own Dataset, follow the following naming structure for each image-
+To create your own dataset, follow the following naming structure for each type of image -
 
 ![](images/Dir_structure-1.png)
 
@@ -90,8 +83,8 @@ Compress the `Data` folder so it can be uploaded to Object Storage.
 
 If you are using mac, the compression creates some additional files which should be deleted. On command prompt, go to the compressed file location and run the following commands.
 
-* zip -d Data_Folder.zip \__MACOSX/\\*
-* zip -d Data_Folder.zip \\\*/.DS_Store
+* zip -d Data.zip \__MACOSX/\\*
+* zip -d Data.zip \\\*/.DS_Store
 
 ### Test images for classification
 
@@ -136,9 +129,7 @@ Repeat above step for test images testdoc-external.zip file.
 
 Note:  It is possible to use your own data files. If you use an image file from your computer, make sure to conform to the directory structure mentioned above and zip it.
 
-Fix-up file names for your own data file
-
-If you use your own data and configuration files, you will need to update the variables that refer to the data files in the Jupyter Notebook.
+If you use your own data and configuration files, you will need to update the variables/folder names that refer to the data files in the Jupyter Notebook.
 
 To open the notebook, click on the edit icon to start editing the notebook on your project.
 
@@ -147,10 +138,9 @@ In the notebook, update the global variables in the cell following
 2.2 Global Variables section.
 
 In the notebook, update the global variables in the cell following 2.2 Global Variables section.
-
 Enter the desired batch_sizes for your training, validation and testing datasets
-
 ![](images/global_variables.png)
+`intereseted_folder='Documents'` is used to specify which class is to be treated as application forms class, so that it points out images that belong to this class.
 
 
 ### 2.6 Update notebook with service credentials
