@@ -1,6 +1,6 @@
 # Image Recognition and Information Extraction from Image Documents using Keras and Watson NLU  
 
-Many organisations process application forms, such as loan applications, from it's customers. Along with the application forms, customers provide other documents needed for processing the application. These additional documents are such are identity proof document, address proof document. Generally these application forms, along with supporting documents, are scanned and captured into the organisation's systems for further processing of applications. Processing these documents and identifying relevant information from documents can be extremely cumbersome and require high manual intervention. Most of the information is captured in application form document. Current process involves a human to identify type application form, read through application forms and identify specific information from application forms. This code pattern shows how such processes can leverage Machine Learning, Natural Language Processing and Natural Language Understanding services and automate identifying relevant information from images.
+Many organisations process application forms, such as loan applications, from it's customers. Along with the application forms, customers provide other documents needed for processing applications. These additional documents are such are identity proof document, address proof document. Generally these application forms, along with supporting documents, are scanned and captured into the organisation's systems for further processing of applications. Processing these documents and identifying relevant information from documents can be extremely cumbersome and require high manual intervention. Most of the information is captured in application form document. Current process involves a human to identify type application form, read through application forms and identify specific information from application forms. This code pattern shows how such processes can leverage Machine Learning, Natural Language Processing and Natural Language Understanding services and automate identifying relevant information from images.
 
 This code pattern covers the following aspects:
 * Classify images so as to separate out the application form document
@@ -67,7 +67,7 @@ If you have not already signed up for Watson Studio then you can sign up [here](
 
 ### 2.1 Data preparation
 
-Training a machine learning model requires a large number of documents and variety in them. While we have trained and tested the methodology followed in this code pattern which given pretty good accuracy (>85%) with a large dataset, we cannot provide those images since they are not open images. For the sake of executing this code pattern and understand the methodology we have provided one of our personal documents and masked personal information on those documents. Please note that multiple copies, with resolution and color changes, of same kind of documents are provided. It is recommended that the user create their own set of images and use them in this code pattern so that they can see real benefits of this code pattern.
+Training a machine learning model requires a large number of documents and variety in them. While we have trained and tested the methodology followed in this code pattern which given pretty good accuracy (>85%) with a large dataset, we cannot provide those images since they are not open images. For the sake of executing this code pattern and understanding the methodology we have provided one of our personal documents and masked personal information on those documents. Please note that multiple copies, with resolution and color changes, of same kind of documents are provided. It is recommended that the user create their own set of images and use them in this code pattern so that they can see real benefits of this code pattern.
 
 To create your own dataset, follow the following naming structure for each type of image -
 
@@ -150,8 +150,8 @@ Select the cell below 2.1 Add your service credentials for Object Storage sectio
 
 * Delete the contents of the cell
 * Use Find and Add Data (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
-* Select Insert to code.
-* Click `Insert StreamingBody object` from drop down menu.
+* Under Files, click the dropdown for `Insert to code` for Data.zip
+* Click `Insert StreamingBody object`.
 * Make sure the credentials are saved as streaming_body_1. If not edit and replace the numbers to 1. There should be four such occurrences in the cell.
 
 ![](images/add_file_imageclassification.png)
@@ -160,8 +160,8 @@ Select the cell in Section 4.4
 
 * Delete the contents of the cell
 * Use Find and Add Data (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
-* Select Insert to code.
-* Click Insert StreamingBody object from drop down menu.
+* Under Files, click the dropdown for `Insert to code` for test_doc-external.zip
+* Click `Insert StreamingBody object`.
 * Make sure the credentials are saved as streaming_body_2. If not edit and replace the numbers to 2. There should be four such occurrences in the cell.
 
 ![](images/add_file_imageclassification_testing.png)
