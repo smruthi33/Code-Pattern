@@ -51,7 +51,6 @@ We will use Python, Jupyter notebook, SK-Learn and Keras libraries, Watson Natur
 
 # Steps
 Follow these steps to setup and run this developer journey. The steps are described in detail below.
-
 1. [Sign up for IBM Watson Studio](#1-sign-up-for-ibm-watson-studio)
 2. [Classification of image Documents](#2-classification-of-image-documents)
 3. [Text Extraction Using Optical Character Recognition](#3-text-extraction-using-optical-character-recognition)
@@ -147,12 +146,12 @@ Enter the desired batch_sizes for your training, validation and testing datasets
 
 Add the Object Storage credentials to the notebook
 
-Select the cell below  2.1 Add your service credentials for Object Storage section in the notebook to update the credentials for Object Store.
+Select the cell below 2.1 Add your service credentials for Object Storage section in the notebook to update the credentials for Object Store.
 
 * Delete the contents of the cell
 * Use Find and Add Data (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
 * Select Insert to code.
-* Click Insert StreamingBody object from drop down menu.
+* Click `Insert StreamingBody object` from drop down menu.
 * Make sure the credentials are saved as streaming_body_1. If not edit and replace the numbers to 1. There should be four such occurrences in the cell.
 
 ![](images/add_file_imageclassification.png)
@@ -165,44 +164,44 @@ Select the cell in Section 4.4
 * Click Insert StreamingBody object from drop down menu.
 * Make sure the credentials are saved as streaming_body_2. If not edit and replace the numbers to 2. There should be four such occurrences in the cell.
 
-Run the notebook by clicking on Cell>Run all in the menu bar.
-
 ![](images/add_file_imageclassification_testing.png)
 
+Run the notebook by clicking on Cell>Run all in the menu bar.
+
 Depending on the dataset, the training of the model takes about one hour. When all the cells in the notebook have run without any errors, we have our machine learning model trained. The trained model also classifies test images. It will point out to the test image that was of the type `Document` (application form document)
+
+<TODO provide image of identified document when notebook is run>
 
 
 ## 3. Text Extraction Using Optical Character Recognition
 
-[Previous section](#2-classification-of-image-documents) identified form document among the set of documents. This section extracts text from the form document that was identified in the above section. The text is then saved as text document on to Object Storage.
+[Previous section](#2-classification-of-image-documents) identified application form document among the list of all image documents. This section extracts text from the application form document that was identified in the above section. The text is then saved as text document on to Object Storage.
 
-We will use tesseract OCR for text extraction.
+We will use tesseract OCR for text extraction. We need to install tesseract engine on our local machine. And so we will run the next notebook on local.  
 * [Install Tesseract OCR](https://github.com/tesseract-ocr/tesseract/wiki). Follow the instructions according to your system specifications
-* Download Convert_Image_to_Text.ipynb from repo <final code repo details>
+* To run the notebook locally, we will install Jupyter notebook on local. Refer [this link](http://jupyter.readthedocs.io/en/latest/install.html) for Jupyter installation instructions
+* Download Convert_Image_to_Text.ipynb from repo <TODO final code repo details> and open it in Jupyter notebook
+* Under section 2.1, update the path of the form document. The form document was identified by the previous notebook run. <TODO did we save the file in Object storage? if yes, mention about path on Object storage>
 
-<TODO Running the notebook>
-Update file names for your filename and configuration files in the `2.1 Global Variables` section.
+![](images/analyze_res1.png)
 
-![](images/analyze_res1.png)    
+Create a file named `credentials.json` and save it anywhere on local machine, say on desktop. This will be a placeholder for cloud object storage bucket credentials. To get the credentials, go to your Cloud Object Storage instance and click on `Service Credentials`. In the desired bucket relevant to your project on Watson Studio, click on `View Credentials`
+![](images/credential_json.png)
+<TODO what to copy from credentials to json file? Provide a sample>
 
-Replace the filename with the path of your image files given as output from the previous step and name with the desired output text file name
+Update the path of `credentials.json` file in `2.2 Connect to Object Storage` of notebook
 
-Create a `credentials.json` file containing the credentials from the cloud object storage bucket used for the project.
-Go to your Cloud Object Storage instance and click on Service Credentials. In the desired bucket relevant to your project on Watson Studio, click on View Credentials
-
-![](images/credential_json.png)    
-
-Update the path to the obtained json file in `2.2 Connect to Object Storage`.
-
-* The output of this section will be the extracted text, saved as a text file in your current working directory.
+* The output of this section will be the extracted text, saved as a text file in your current working directory. <TODO.. is there any update here after latest changes?>
 
 Run the notebook by clicking on Cell>Run all in the menu bar.
+
+<TODO What will happen on running this notebook?>
 
 ## 4. Entity Extraction and Document Classification
 
 ### 4.1 Create IBM Cloud services
 
-Create the following IBM Cloud service and give a unique name for the service instance:
+Create the following IBM Cloud service and give a unique name for the service:
 
 * [Watson Natural Language Understanding](https://console.bluemix.net/catalog/services/natural-language-understanding)
 
@@ -227,9 +226,17 @@ Login to [IBM Cloud Dashboard](http://console.bluemix.net/). Click on the Watson
 
 ### 4.3 Add the data file <TODO.. how data file is added>
 <TODO.. explain about configuration files>
+There are two configuration files
+
+#### 4.3.1 Entities Config
+Check the file <TODO/link to repo/Configuration/config_entity_extract.txt>. This file contains regular expressions and chunking patterns which are used to identify entities and their values from the text of the form document
+
+#### 4.3.2 Document Type config
+Check the file <TODO/link to repo/Configuration/config_legaldocs.txt>. This file contains information to identify the type of the document. It specifies what all entities should be available in a document to categorise the document to a particular type. E.g. A document can be a rental agreement document if it has entities `Leaser Term`, `Rent`, `Security Deposit`.
+
 * Download <TODO configuration files> from the repo <TODO final repo link>
 * Add the above configuration files to Object Storage. In Watson Studio, go to your project default page, use Find and Add Data (look for the 10/01 icon) and its Files tab
-* Also upload the text files obtained as a result of 'Text Extraction Using Optical Character Recognition'
+* Also upload the text files obtained as a result of `Text Extraction Using Optical Character Recognition`
 
 ![](images/add_file.png)
 
@@ -247,7 +254,7 @@ In the notebook, update the global variables in the cell following
 
 In the notebook, update the global variables in the cell following 2.2 Global Variables section.
 
-Enter the filenames of the text file obtained as a result of 'Text Extraction Using Optical Character Recognition' as well as the configuration files uploaded into Object Storage.
+Enter the filenames of the text file obtained as a result of `Text Extraction Using Optical Character Recognition` as well as the configuration files uploaded into Object Storage.
 
 ![](images/global_variables_entity.png)
 
@@ -291,38 +298,3 @@ This pattern aims to automate the identification of legal form document from oth
 1. First, we ran the notebook `Image Classification of Documnet.ipynb`. Here we created and trained an image classification machine learning model. We then provided the model with a set of images for it to classify. The model classified the images and marked the application for documents in the set of input images by providing it's path. e.g. `test_doc-external/Form1 copy 2.jpg`
 2. As a second step we ran the second notebook `conv_img_to_txt.ipynb` while providing the application form document identified by first notebook. Here we converted image to text using tesseract and uploaded the file to Object storage
 3. As a final step we ran the notebook `Entity Extraction and Document Classification.ipynb`. This notebook used a couple of configuration files and identified required information from the text extracted in the second step above. It used Watson NLU and custom configuration to understand what information to identify based on what type of document is the text document. like, if the text is a purchase agreement, then it identifies a particular set of entities related to purchase agreement.
-
-
-# TODOs
-- Add test images after the training in notebook
-- Create services section
-
-# Run the notebooks
-
-First run the Image Classification of Documents.ipynb. This notebook will identify a set of legal document from the rest of the input documents. The identified documents are further fed into Convert_Image_to_Text.ipynb. The resulting documents produced are fed as input to the next phase.
-The notebook entity_extraction_and_document_classification.ipynb provides the required entities in the document and classify the document based on the configuration files fed as an input to the same
-
-When a notebook is executed, what is actually happening is that each code cell in the notebook is executed, in order, from top to bottom.
-
-> IMPORTANT: The first time you run your notebook, you will need to install the necessary
-packages in section 1.1 and then `Restart the kernel`.
-
-Each code cell is selectable and is preceded by a tag in the left margin. The tag format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
-
-* A blank, this indicates that the cell has never been executed.
-* A number, this number represents the relative order this code step was executed.
-* A `*`, this indicates that the cell is currently executing.
-
-There are several ways to execute the code cells in your notebook:
-
-* One cell at a time.
-  * Select the cell, and then press the `Play` button in the toolbar.
-* Batch mode, in sequential order.
-  * From the `Cell` menu bar, there are several options available. For example, you
-    can `Run All` cells in your notebook, or you can `Run All Below`, that will
-    start executing from the first cell under the currently selected cell, and then
-    continue executing all cells that follow.
-* At a scheduled time.
-  * Press the `Schedule` button located in the top right section of your notebook
-    panel. Here you can schedule your notebook to be executed once at some future
-    time, or repeatedly at your specified interval.
