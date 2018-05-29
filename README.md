@@ -181,21 +181,19 @@ We will use tesseract OCR for text extraction. We need to install tesseract engi
 * [Install Tesseract OCR](https://github.com/tesseract-ocr/tesseract/wiki). Follow the instructions according to your system specifications
 * To run the notebook locally, we will install Jupyter notebook on local. Refer [this link](http://jupyter.readthedocs.io/en/latest/install.html) for Jupyter installation instructions
 * Download Convert_Image_to_Text.ipynb from repo <TODO final code repo details> and open it in Jupyter notebook
-* Under section 2.1, update the path of the form document. The form document was identified by the previous notebook run. <TODO did we save the file in Object storage? if yes, mention about path on Object storage>
+* Under section 2.1, update the path of the form document. The form document was identified by the previous notebook run. <TODO did we save the file in Object storage? if yes, mention about path on Object storage form doc 1>
 
 ![](images/analyze_res1.png)
 
 Create a file named `credentials.json` and save it anywhere on local machine, say on desktop. This will be a placeholder for cloud object storage bucket credentials. To get the credentials, go to your Cloud Object Storage instance and click on `Service Credentials`. In the desired bucket relevant to your project on Watson Studio, click on `View Credentials`
 ![](images/credential_json.png)
-<TODO what to copy from credentials to json file? Provide a sample>
+<TODO what to copy from credentials to json file? Provide a sample. Copy everything as it is and paste it as a json file>
 
 Update the path of `credentials.json` file in `2.2 Connect to Object Storage` of notebook
 
-* The output of this section will be the extracted text, saved as a text file in your current working directory. <TODO.. is there any update here after latest changes?>
+* The output of this section will be the extracted text, saved as a text file in your current working directory. <TODO.. is there any update here after latest changes?. yes, will be directly saved in Object Storage as form-doc-x.txt>
 
 Run the notebook by clicking on Cell>Run all in the menu bar.
-
-<TODO What will happen on running this notebook?>
 
 ## 4. Entity Extraction and Document Classification
 
@@ -283,7 +281,7 @@ Select the cell below `2.1 Add your service credentials from IBM Cloud for the W
 
 Run the notebook by clicking on Cell>Run all in the menu bar.
 
-<TODO explain how the notebook uses configuration files and provides entities and their values>
+<TODO explain how the notebook uses configuration files and provides entities and their values. Refer to Balaji's patterns - document classifier>
 
 Entities identified are displayed as shown in below image
 ![](images/analyze_res2.png)
